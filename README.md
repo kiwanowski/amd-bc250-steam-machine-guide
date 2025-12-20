@@ -9,6 +9,7 @@ Arctic 12 pro
 
 D-LINK DWA-181 - Wifi
 ASUS USB-BT500 - bluetooth
+TP-LINK UB500 Plus
 
 sudo copr enable filippor/bazzite
 sudo rpm-ostree install oberon-governor
