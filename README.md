@@ -8,15 +8,29 @@ https://www.printables.com/model/1282906-bc-250-scooper
 Arctic 12 pro
 
 D-LINK DWA-181 - Wifi
-ASUS USB-BT500 - bluetooth
-TP-LINK UB500 Plus
+TP-LINK UB500 Plus - bt
 
 sudo copr enable filippor/bazzite
 sudo rpm-ostree install oberon-governor
 systemctl reboot
 systemctl enable --now oberon-governor
 
-etc/oberon-config and restart the governor systemctl restart oberon-governor
+https://download.bazzite.gg/bazzite-deck-stable-live.iso
+
+Dell server power supply
+
+/etc/oberon-config.yaml
+
+frequency:
+max: 2100 #2230
+voltage:
+max: 950 #1129
+
+gfx_temp_soft_lim: 95
+gfx_temp_hard_lim: 95 
+soc_temp_hard_lim: 95
+
+systemctl restart oberon-governor
 
 sudo rpm-ostree kargs --append-if-missing="mitigations=off"
 
@@ -24,4 +38,4 @@ ujust install-coolercontrol
 
 /etc/systemd/zram‑generator.conf
 
-16384
+zram-size=16384
