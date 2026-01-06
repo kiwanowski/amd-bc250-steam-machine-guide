@@ -40,7 +40,7 @@ Now the GPU clock will go up to 2000MHz. You can tune it by editing the followin
 
 /etc/oberon-config.yaml
 
-You can set the max frequency to 2230 and the voltage 1129. My board overheated at 2230MHz so I went with 2100MHz and undervolted it a bit. After making the changes you need to type:
+You can set the max frequency to 2230MHz and the voltage 1129mV. My board overheated at 2230MHz so I went with 2100MHz and undervolted it a bit. After making the changes you need to type:
 
 systemctl restart oberon-governor
 
