@@ -26,29 +26,34 @@ You will need an M.2 NVME 2280 SSD (the board supports PCIe 2.0)
 
 Here you can download Bazzite - https://download.bazzite.gg/bazzite-deck-stable-live.iso
 
+By default the GPU clock will always stay at 1500MHz. You may want to install a governor with these commands:
+
 sudo copr enable filippor/bazzite
+
 sudo rpm-ostree install oberon-governor
+
 systemctl reboot
+
 systemctl enable --now oberon-governor
 
+Now the GPU clock will go up to 2000MHz. You can tune it by editing the following file:
 
 /etc/oberon-config.yaml
 
-frequency:
-max: 2100 #2230
-voltage:
-max: 950 #1129
-
-gfx_temp_soft_lim: 95
-gfx_temp_hard_lim: 95 
-soc_temp_hard_lim: 95
+You can set the max frequency to 2230 and the voltage 1129. My board overheated at 2230MHz so I went with 2100MHz and undervolted it a bit. After making the changes you need to type:
 
 systemctl restart oberon-governor
 
+To get more performance you can you the following command. You will get better performance but your board will be vulnerable to some well known exploits.
+
 sudo rpm-ostree kargs --append-if-missing="mitigations=off"
 
-ujust install-coolercontrol
+You can increase the amount of ZRAM to 16GB  by editing the following file:
 
 /etc/systemd/zram‑generator.conf
 
-zram-size=16384
+and set zram-size=16384
+
+If you want to change the fan speed for the desktop you can instal coolercontrol with this command:
+
+ujust install-coolercontrol
