@@ -87,7 +87,7 @@ After making changes, restart the governor:
 systemctl restart oberon-governor
 ```
 
-### Disable Mitigations (Optional)
+### Disable Mitigations
 
 For extra performance (at the cost of security):
 
