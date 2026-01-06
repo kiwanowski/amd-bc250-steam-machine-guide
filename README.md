@@ -2,7 +2,13 @@
 Guide for building a Steam Machine from an AMD BC‑250
 
 
-https://www.thingiverse.com/thing:7165679
+Here is a link to the 3D printed case - https://www.thingiverse.com/thing:7165679
+
+You may need to use tinkercad to enlarge the space for the PSU in the Shell_Back_FLEX_ATX.stl file depending on the PSU that you are using.
+
+I have added to the repo a modfied Shell_Back_Dell.stl that Im using with a Dell server PSU
+
+
 https://www.printables.com/model/1282906-bc-250-scooper
 
 Arctic 12 pro
@@ -16,8 +22,6 @@ systemctl reboot
 systemctl enable --now oberon-governor
 
 https://download.bazzite.gg/bazzite-deck-stable-live.iso
-
-Dell server power supply
 
 /etc/oberon-config.yaml
 
