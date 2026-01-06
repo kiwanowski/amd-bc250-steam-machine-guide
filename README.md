@@ -17,6 +17,7 @@ If you want to use the mentioned case, you will need to straighten the radfiator
 The mentioned case uses Arctic 12 pro fans for cooling. You can use one or two of those fans.
 
 
+
 You will probably need dongles for wifi and bluetooth. Here the ones that Im using:
 
 D-LINK DWA-181 - Wifi
