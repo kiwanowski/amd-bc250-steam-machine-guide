@@ -16,8 +16,6 @@ If you want to use the mentioned case, you will need to straighten the radfiator
 
 The mentioned case uses Arctic 12 pro fans for cooling. You can use one or two of those fans.
 
-
-
 You will probably need dongles for wifi and bluetooth. Here the ones that Im using:
 
 D-LINK DWA-181 - Wifi
@@ -26,12 +24,13 @@ TP-LINK UB500 Plus - BT
 
 You will need an M.2 NVME 2280 SSD (the board supports PCIe 2.0)
 
+Here you can download Bazzite - https://download.bazzite.gg/bazzite-deck-stable-live.iso
+
 sudo copr enable filippor/bazzite
 sudo rpm-ostree install oberon-governor
 systemctl reboot
 systemctl enable --now oberon-governor
 
-https://download.bazzite.gg/bazzite-deck-stable-live.iso
 
 /etc/oberon-config.yaml
 
