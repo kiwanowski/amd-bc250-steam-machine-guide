@@ -1,6 +1,6 @@
 # AMD BC-250 Steam Machine Guide
 
-> 🎮 A comprehensive guide for building a Steam Machine from an AMD BC‑250 mining board
+> 🎮 A  guide for building a Steam Machine from an AMD BC‑250 mining board
 
 ---
 
@@ -18,8 +18,6 @@ I've also added a modified `Shell_Back_Dell.stl` to the repo that I'm using with
 
 You will need a **400W PSU**.
 
-### Dell Server PSU Option
-
 If you're using a Dell server PSU, you'll need to:
 1. Make a custom cable for it
 2. Short pins **S13**, **S14**, and **S16** on the PSU
@@ -32,7 +30,7 @@ If you're using a Dell server PSU, you'll need to:
 
 If using the mentioned case, you'll need to straighten the radiator fins. Options:
 - **Print a tool:** [BC-250 Scooper on Printables](https://www.printables.com/model/1282906-bc-250-scooper)
-- **Buy a fin straightener:** Available on Amazon/AliExpress
+- **Buy a fin straightener online**
 
 The case uses **Arctic 12 Pro fans** for cooling. You can use one or two of these fans.
 
@@ -114,12 +112,6 @@ To control fan speed from desktop, install CoolerControl:
 ```bash
 ujust install-coolercontrol
 ```
-
----
-
-## 📄 License
-
-Feel free to use and modify this guide for your own BC-250 build!
 
 ---
 
