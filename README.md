@@ -1,59 +1,126 @@
-# amd-bc250-steam-machine-guide
-Guide for building a Steam Machine from an AMD BC‑250
+# AMD BC-250 Steam Machine Guide
 
+> 🎮 A comprehensive guide for building a Steam Machine from an AMD BC‑250 mining board
 
-Here is a link to a 3D printed case - https://www.thingiverse.com/thing:7165679
+---
 
-You may need to use tinkercad to enlarge the space for the PSU in the Shell_Back_FLEX_ATX.stl file depending on the PSU that you are using.
+## 📦 3D Printed Case
 
-I have added to the repo a modfied Shell_Back_Dell.stl that Im using with a Dell server PSU
+Get a custom 3D printed case from [Thingiverse](https://www.thingiverse.com/thing:7165679).
 
-You will need a 400W PSU.
+> **Note:** You may need to use TinkerCAD to enlarge the space for the PSU in the `Shell_Back_FLEX_ATX.stl` file depending on the PSU you're using.
 
-If you are going to use a Dell server PSU then you will need to make a cable for it and short pins S13, S14 and S16 on the PSU. I added a pinout diagram to the repo.
+I've also added a modified `Shell_Back_Dell.stl` to the repo that I'm using with a Dell server PSU.
 
-If you want to use the mentioned case, you will need to straighten the radfiator fins. You can print a tool for that - https://www.printables.com/model/1282906-bc-250-scooper or you can buy a fin straightening tool online
+---
 
-The mentioned case uses Arctic 12 pro fans for cooling. You can use one or two of those fans.
+## ⚡ Power Supply Requirements
 
-You will probably need dongles for wifi and bluetooth. Here the ones that Im using:
+You will need a **400W PSU**.
 
-D-LINK DWA-181 - Wifi
+### Dell Server PSU Option
 
-TP-LINK UB500 Plus - BT
+If you're using a Dell server PSU, you'll need to:
+1. Make a custom cable for it
+2. Short pins **S13**, **S14**, and **S16** on the PSU
 
-You will need an M.2 NVME 2280 SSD (the board supports PCIe 2.0)
+> 📌 A pinout diagram has been added to the repo for reference.
 
-Here you can download Bazzite - https://download.bazzite.gg/bazzite-deck-stable-live.iso
+---
 
-By default the GPU clock will always stay at 1500MHz. You may want to install a governor with these commands:
+## 🌀 Cooling Setup
 
+If using the mentioned case, you'll need to straighten the radiator fins. Options:
+- **Print a tool:** [BC-250 Scooper on Printables](https://www.printables.com/model/1282906-bc-250-scooper)
+- **Buy a fin straightener:** Available on Amazon/AliExpress
+
+The case uses **Arctic 12 Pro fans** for cooling. You can use one or two of these fans.
+
+---
+
+## 📡 Wireless Connectivity
+
+You will probably need dongles for WiFi and Bluetooth. Here are my recommendations:
+
+| Type | Model |
+|------|-------|
+| WiFi | D-LINK DWA-181 |
+| Bluetooth | TP-LINK UB500 Plus |
+
+---
+
+## 💾 Storage
+
+You will need an **M.2 NVMe 2280 SSD** (the board supports PCIe 2.0).
+
+---
+
+## 🐧 Operating System
+
+Download **Bazzite** (SteamOS-based distro):  
+👉 [bazzite-deck-stable-live.iso](https://download.bazzite.gg/bazzite-deck-stable-live.iso)
+
+---
+
+## ⚙️ Performance Tuning
+
+### GPU Governor
+
+By default, the GPU clock will always stay at 1500MHz. To enable dynamic GPU clocking up to 2000MHz:
+
+```bash
 sudo copr enable filippor/bazzite
-
 sudo rpm-ostree install oberon-governor
-
 systemctl reboot
-
 systemctl enable --now oberon-governor
+```
 
-Now the GPU clock will go up to 2000MHz. You can tune it by editing the following file:
+### GPU Overclocking
 
-/etc/oberon-config.yaml
+Edit `/etc/oberon-config.yaml` to tune frequency and voltage:
+- **Max frequency:** up to 2230MHz
+- **Voltage:** 1129mV
 
-You can set the max frequency to 2230MHz and the voltage 1129mV. My board overheated at 2230MHz so I went with 2100MHz and undervolted it a bit. After making the changes you need to type:
+> ⚠️ My board overheated at 2230MHz, so I went with **2100MHz** and undervolted it slightly.
 
+After making changes, restart the governor:
+
+```bash
 systemctl restart oberon-governor
+```
 
-To get more performance you can you the following command. You will get better performance but your board will be vulnerable to some well known exploits.
+### Disable Mitigations (Optional)
 
+For extra performance (at the cost of security):
+
+```bash
 sudo rpm-ostree kargs --append-if-missing="mitigations=off"
+```
 
-You can increase the amount of ZRAM to 16GB  by editing the following file:
+> ⚠️ **Warning:** This makes your board vulnerable to some well-known exploits.
 
-/etc/systemd/zram‑generator.conf
+### Increase ZRAM
 
-and set zram-size=16384
+To increase ZRAM to 16GB, edit `/etc/systemd/zram‑generator.conf`:
 
-If you want to change the fan speed for the desktop you can instal coolercontrol with this command:
+```
+zram-size=16384
+```
 
+### Fan Control
+
+To control fan speed from desktop, install CoolerControl:
+
+```bash
 ujust install-coolercontrol
+```
+
+---
+
+## 📄 License
+
+Feel free to use and modify this guide for your own BC-250 build!
+
+---
+
+**Happy building!** 🛠️
