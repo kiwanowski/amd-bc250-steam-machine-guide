@@ -77,7 +77,7 @@ systemctl enable --now oberon-governor
 
 Edit `/etc/oberon-config.yaml` to tune frequency and voltage:
 - **Max frequency:** up to 2230MHz
-- **Voltage:** 1129mV
+- **Max voltage:** 1129mV
 
 > ⚠️ My board overheated at 2230MHz, so I went with **2100MHz** and undervolted it slightly.
 
