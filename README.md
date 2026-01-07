@@ -55,7 +55,7 @@ You will need an **M.2 NVMe 2280 SSD** (the board supports PCIe 2.0).
 
 ## 🐧 Operating System
 
-Download **Bazzite** (SteamOS-based distro):  
+Download **Bazzite**:  
 👉 [bazzite-deck-stable-live.iso](https://download.bazzite.gg/bazzite-deck-stable-live.iso)
 
 ---
@@ -76,8 +76,8 @@ systemctl enable --now oberon-governor
 ### GPU Overclocking
 
 Edit `/etc/oberon-config.yaml` to tune frequency and voltage:
-- **Max frequency:** up to 2230MHz
-- **Max voltage:** 1129mV
+- **Max frequency:** you can set it up to 2230MHz
+- **Max voltage:** you can set it up to 1129mV
 
 > ⚠️ My board overheated at 2230MHz, so I went with **2100MHz** and undervolted it slightly.
 
@@ -89,7 +89,7 @@ systemctl restart oberon-governor
 
 ### Disable Mitigations
 
-For extra performance (at the cost of security):
+For extra CPU performance (at the cost of security):
 
 ```bash
 sudo rpm-ostree kargs --append-if-missing="mitigations=off"
