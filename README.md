@@ -32,7 +32,7 @@ If using the mentioned case, you'll need to straighten the radiator fins. Option
 - **Print a tool:** [BC-250 Scooper on Printables](https://www.printables.com/model/1282906-bc-250-scooper)
 - **Buy a fin straightener online**
 
-The case uses **Arctic 12 Pro fans** for cooling. You have an option to use one or two of these fans in your setup.
+The case uses **Arctic P12 Pro fans** for cooling (supports 1 or 2 fan configurations).
 
 ---
 
@@ -45,13 +45,13 @@ You will probably need dongles for WiFi and Bluetooth. Here are my recommendatio
 | WiFi | D-LINK DWA-181 |
 | Bluetooth | TP-LINK UB500 Plus |
 
-You can find more options here - https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Adapters_that_are_supported_with_Linux_in-kernel_drivers.md
+Find more Linux-compatible adapters in the [USB-WiFi compatibility list](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Adapters_that_are_supported_with_Linux_in-kernel_drivers.md).
 
 ---
 
 ## 💾 Storage
 
-You will need an **M.2 NVMe 2280 SSD** (the board supports speeds up to PCIe 2.0).
+You will need an **M.2 NVMe 2280 SSD** (the board supports speeds up to **PCIe 2.0** only.).
 
 ---
 
@@ -66,7 +66,7 @@ Download **Bazzite**:
 
 ### GPU Governor
 
-By default, the GPU clock will always stay at 1500MHz. To enable dynamic GPU clocking up to 2000MHz:
+By default, the GPU clock will always stay at 1500MHz. Enable dynamic GPU clocking up to 2000MHz:
 
 ```bash
 sudo copr enable filippor/bazzite
@@ -81,7 +81,7 @@ Edit `/etc/oberon-config.yaml` to tune frequency and voltage:
 - **Max frequency:** you can set it up to 2230MHz
 - **Max voltage:** you can set it up to 1129mV
 
-> ⚠️ My board always overheated at 2230MHz with 2 fans running at 100%, so I went with **2100MHz** and undervolted it slightly. Now my fans dont go above 60%
+> ⚠️ My board overheated at 2230MHz even with 2 fans at 100%.  I settled on **2100MHz** with slight undervolting. The fans now stay below 60%.
 
 After making changes, restart the governor:
 
@@ -97,7 +97,7 @@ For extra CPU performance (at the cost of security):
 sudo rpm-ostree kargs --append-if-missing="mitigations=off"
 ```
 
-> ⚠️ **Warning:** This makes your board vulnerable to some well-known exploits.
+> ⚠️ **Warning:** > This disables security mitigations and makes your system vulnerable to known CPU exploits (Spectre, Meltdown, etc.). Only use on isolated/gaming-only systems.
 
 ### Increase ZRAM
 
@@ -117,4 +117,7 @@ ujust install-coolercontrol
 
 ---
 
-TODO: Bios update, VRAM setup
+## 🗺️ Roadmap
+
+- [ ] BIOS update guide
+- [ ] VRAM configuration
