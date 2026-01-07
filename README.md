@@ -51,7 +51,7 @@ Find more Linux-compatible adapters in the [USB-WiFi compatibility list](https:/
 
 ## 💾 Storage
 
-You will need an **M.2 NVMe 2280 SSD** (the board supports speeds up to **PCIe 2.0** only.).
+You will need an **M.2 NVMe 2280 SSD** (the board supports speeds up to **PCIe 2.0**).
 
 ---
 
@@ -121,3 +121,7 @@ ujust install-coolercontrol
 
 - [ ] BIOS update guide
 - [ ] VRAM configuration
+
+---
+
+**Happy gaming! ** 🎮
